@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
+	<title>Find missed connections</title>
+</head>
+
+<body onload="setupStops()">
+<select id="stopSelect"></select>
+<button onclick="getMissedConnectionsForSelectedItem()">find</button>
+<div id="results"></div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+	<script src="./getMissedConnections.js"></script>
+	<script src="./stops.js"></script>
+</body>
+
+</html>
