@@ -16,7 +16,7 @@ async function getDepartures(stopId){
 }
 
 async function getMissedConnctions(stopId, transferTime=600){
-	let stats = {arrivals:0,onTimeCount:0, lateCount:0,missedConnections:0,atRisk:0,details:[]};
+	let stats = {arrivals:0,onTimeCount:0, lateCount:0,missedConnections:0,atRisk:0,details:[],raw:{}};
 
 	//getArrivals
 	const arrivalsJson = await getArrivals(stopId);
@@ -52,8 +52,9 @@ async function getMissedConnctions(stopId, transferTime=600){
 						stats.details.push(`Arrival from ${arrival.provenance} expected at ${arrival.plannedWhen} actually arrived at ${arrival.when}`);
 						stats.details.push(`Departure to ${departure.direction} at ${departure.when}`);
 					}
-				}			
-				
+				}
+				stats.raw["arrival"] = arrival;
+				stats.raw["departure"] = departure;		
 			});
 		}
 		else{
