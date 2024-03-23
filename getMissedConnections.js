@@ -68,7 +68,12 @@ async function getMissedConnctions(stopId, transferTime=600){
 		}
 		else{
 			detail = {};
-			detail["status"] = "arrival on time"
+			if(arrival.when){
+				detail["status"] = "arrival on time"
+			}
+			else{
+				detail["status"] = "unknown"
+			}
 			detail["arrival"] = arrival;
 			stats.details.push(detail);
 			stats.onTimeCount +=1;
