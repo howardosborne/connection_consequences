@@ -70,6 +70,7 @@ async function getMissedConnctions(stopId, transferTime=600){
 			detail = {};
 			detail["status"] = "arrival on time"
 			detail["arrival"] = arrival;
+			stats.details.push(detail);
 			stats.onTimeCount +=1;
 		}
 	});
